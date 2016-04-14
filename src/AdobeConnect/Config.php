@@ -1,5 +1,5 @@
 <?php
-namespace AdobeConnect;
+namespace App\Http\Controllers\AdobeConnect;
 
 /**
  * Provides a configuration object for connect with an Adobe Connect account.

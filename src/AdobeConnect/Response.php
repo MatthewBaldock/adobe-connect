@@ -1,5 +1,5 @@
 <?php
-namespace AdobeConnect;
+namespace App\Http\Controllers\AdobeConnect;
 
 /**
  * Make the call to Adobe Connect's API and check if it status is ok.

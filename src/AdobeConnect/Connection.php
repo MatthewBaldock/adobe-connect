@@ -1,5 +1,5 @@
 <?php
-namespace AdobeConnect;
+namespace App\Http\Controllers\AdobeConnect;
 
 /**
  * Provides a connection with an Adobe Connect's Host, log in the admin user, and provides the method to call actions.
@@ -46,7 +46,7 @@ class Connection
      */
     public function connect()
     {
-        if (! $this->getCookie()) {
+        if (!$this->getCookie()) {
             $response = $this->doRequest('common-info');
 
             $this->setCookie($response->getXmlResponse()->common->cookie);
@@ -55,15 +55,20 @@ class Connection
         $this->connected = true;
     }
 
+    public function reconnect()
+    {
+        $response = $this->doRequest('common-info');
+        $this->setCookie($response->getXmlResponse()->common->cookie);
+    }
     public function login()
     {
         $this->checkIfIsConnected();
 
-        $this->doRequest('login', array(
+        $response = $this->doRequest('login', array(
             'login' => $this->config->getUsername(),
             'password' => $this->config->getPassword(),
         ));
-
+        $this->setCookie($response->getXmlResponse()->specialcookie);
         $this->loggedIn = true;
     }
 

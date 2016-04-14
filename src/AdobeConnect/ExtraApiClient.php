@@ -1,5 +1,5 @@
 <?php
-namespace AdobeConnect;
+namespace App\Http\Controllers\AdobeConnect;
 
 /**
  * ApiClient's extra functionalities.

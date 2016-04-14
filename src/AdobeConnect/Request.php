@@ -1,5 +1,5 @@
 <?php
-namespace AdobeConnect;
+namespace App\Http\Controllers\AdobeConnect;
 
 /**
  * Provides a well formed endpoint url for Adobe Connect's API.
@@ -27,7 +27,7 @@ class Request
             return urlencode($param);
         }, $params);
         $this->uri = sprintf('?%s', http_build_query(array_merge(array('action' => $action), $params), null, '&'));
-        $this->url = sprintf('https://%s/api/xml%s', $host, $this->uri);
+        $this->url = sprintf('%s/api/xml%s', $host, $this->uri);
     }
 
     /** @return string */

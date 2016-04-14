@@ -1,5 +1,5 @@
 <?php
-namespace AdobeConnect;
+namespace App\Http\Controllers\AdobeConnect;
 
 /**
  * Provides a PHP Client to interact with the Adobe Connect's API
@@ -21,6 +21,7 @@ class ApiClient
         $this->connection = new Connection($config);
         $this->connection->connect();
         $this->connection->login();
+        $this->connection->reconnect();
     }
 
     /**
